@@ -8,13 +8,16 @@ function tick() {
     ReactDOM.render(element, document.getElementById('root'));
 }
 setInterval(tick, 1000);
-var nombre = document.getElementById("nombre").value;
-var data = { "name": nombre }
+
+
 function changeName() {
+    var nombre = document.getElementById("nombre").value;
+    var data = { "name": nombre }
     $.get("/setname", data).then(
         function (data) {
         }
     )
+
 }
 class StatusComponent extends React.Component {
     constructor(props) {
