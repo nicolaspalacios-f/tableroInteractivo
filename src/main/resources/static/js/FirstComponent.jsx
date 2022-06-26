@@ -8,7 +8,14 @@ function tick() {
     ReactDOM.render(element, document.getElementById('root'));
 }
 setInterval(tick, 1000);
-
+var nombre = document.getElementById("nombre").value;
+var data = { "name": nombre }
+function changeName() {
+    $.get("/setname", data).then(
+        function (data) {
+        }
+    )
+}
 class StatusComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -45,6 +52,7 @@ class StatusComponent extends React.Component {
                 }
             )
     }
+
     render() {
         const { error, isLoaded, status } = this.state;
         if (error) {
@@ -67,3 +75,4 @@ ReactDOM.render(
     <StatusComponent />,
     document.getElementById('status')
 );
+
